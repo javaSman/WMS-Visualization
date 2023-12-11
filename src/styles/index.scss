@@ -1,0 +1,326 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './btn.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-5 {
+  padding-left: 5px;
+}
+
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.inlineBlock {
+  display: block;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: ' ';
+    clear: both;
+    height: 0;
+  }
+}
+
+aside {
+  background: #eef1f6;
+  padding: 8px 24px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  display: block;
+  line-height: 32px;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: #2c3e50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  a {
+    color: #337ab7;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(32, 160, 255);
+    }
+  }
+}
+
+//main-container全局样式
+.app-container {
+  padding: 20px;
+}
+
+.components-container {
+  margin: 30px 50px;
+  position: relative;
+}
+
+.pagination-container {
+  margin-top: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sub-navbar {
+  height: 50px;
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  transition: 600ms ease position;
+  background: linear-gradient(
+    90deg,
+    rgba(32, 182, 249, 1) 0%,
+    rgba(32, 182, 249, 1) 0%,
+    rgba(33, 120, 241, 1) 100%,
+    rgba(33, 120, 241, 1) 100%
+  );
+
+  .subtitle {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  &.draft {
+    background: #d0d0d0;
+  }
+
+  &.deleted {
+    background: #d0d0d0;
+  }
+}
+
+.link-type,
+.link-type:focus {
+  color: #337ab7;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(32, 160, 255);
+  }
+}
+
+.el-form-item {
+  margin-bottom: 10px;
+}
+
+.filter-container {
+  padding-bottom: 6px;
+
+  .filter-item {
+    // display: inline-block;
+    display: inline-table;
+    vertical-align: middle;
+    margin-bottom: 0;
+  }
+}
+
+//refine vue-multiselect plugin
+.multiselect {
+  line-height: 16px;
+}
+
+.multiselect--active {
+  z-index: 1000 !important;
+}
+
+.pagination-container {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  /*滚动条宽度*/
+  height: 7px;
+  /*滚动条高度*/
+  background-color: white;
+}
+
+.el-table__body-wrapper tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(193, 193, 193, 0.5);
+  /*滚动条的背景颜色*/
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-track {
+  border: 0;
+}
+
+/*是否继续新增*/
+.continue-add {
+  float: left;
+  padding: 9px 15px;
+}
+
+/*表格拖动行*/
+.sortable-row {
+  background-color: #e8f4ff !important;
+}
+
+/*子母表拖动*/
+.components-container {
+  position: relative;
+  height: calc(100vh - 124px);
+  margin: 20px;
+}
+
+.splitArea {
+  height: calc(100vh - 204px);
+}
+
+/*明细表列自定义按钮*/
+.detail-btn {
+  float: right;
+  padding: 4px 10px;
+  margin: 0 5px;
+}
+
+/*高级查询列表*/
+.highSearch-card {
+  position: absolute;
+  margin-top: 0px;
+  left: 20px;
+  right: 20px;
+  z-index: 3;
+}
+
+// 表格每列展开数据
+.table-expand {
+  font-size: 0;
+
+  .el-form-item {
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  .el-form-item__content {
+    font-size: 12px;
+  }
+}
+
+.table-expand label {
+  width: 70px;
+  color: #99a9bf;
+}
+
+/*列排序表格*/
+.col-detail-table tbody {
+  cursor: move;
+}
+
+.row-add td {
+  background-color: #f2e8b763 !important;
+}
+
+.row-edit td {
+  background-color: #b4e6ca54 !important;
+}
+
+.el-table--medium th,
+.el-table--medium td {
+  padding: 3px 0;
+}
+
+/*展开表*/
+.row-expand-disabled td:first-child .el-icon-arrow-right {
+  visibility: hidden;
+}
+
+// 容器水平分布
+.level-container {
+  .el-aside {
+    background: none;
+
+    padding: 10px;
+  }
+
+  .el-main {
+    padding: 10px;
+  }
+}

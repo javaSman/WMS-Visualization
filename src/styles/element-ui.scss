@@ -1,0 +1,228 @@
+// cover some element-ui styles
+
+/* 调试英文版换行样式-----开始 */
+.el-submenu__title span {
+  white-space: normal;
+  word-break: break-word;
+  line-height: 20px;
+  flex: 1;
+  padding-right: 20px;
+}
+// 内容高度自适应样式
+.el-menu-item {
+  min-height: 50px;
+  height: auto !important; //内容高度自适应
+  display: flex;
+  align-items: center;
+  padding-right: 20px !important;
+}
+.el-menu-item span {
+  line-height: 20px;
+  white-space: normal;
+  word-break: break-word;
+  align-items: center;
+  flex: 1;
+}
+// span内容超过两行显示省略号 样式
+// .el-menu-item {
+//     min-height: 60px ;
+//     text-overflow: ellipsis;
+//     white-space: normal;
+//     overflow: hidden;
+//     display: -webkit-box;
+//     -webkit-line-clamp: 2;
+//     -webkit-box-orient: vertical;
+//     padding: 16px 30px !important;
+//     line-height: 20px !important;
+// }
+/* 调试英文版换行样式-----结束 */
+
+/* 单选按钮低于其他选择框1px，导致换行靠右问题 */
+.el-radio-group {
+  margin: 7.45px 0;
+}
+// input框增高到其余选择框一致高度
+// .el-input {
+//     height: 33px;
+// }
+// // 调整按钮的高度
+// .el-input-number__decrease {
+//     height: 13px !important;
+//     top: 17px !important;
+// }
+//table header
+.table-form .el-table th > .cell {
+  display: flex;
+  align-items: center;
+}
+
+.table-form .el-table th > .cell > span:first-child {
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+  font-weight: 400 !important;
+}
+
+.el-upload {
+  input[type='file'] {
+    display: none !important;
+  }
+}
+
+.el-upload__input {
+  display: none;
+}
+
+.cell {
+  .el-tag {
+    margin-right: 0px;
+  }
+}
+
+.small-padding {
+  .cell {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.fixed-width {
+  .el-button--mini {
+    padding: 7px 10px;
+    width: 60px;
+  }
+}
+
+.status-col {
+  .cell {
+    padding: 0 10px;
+    text-align: center;
+
+    .el-tag {
+      margin-right: 0px;
+    }
+  }
+}
+
+// to fixed https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+  transform: none;
+  left: 0;
+  position: relative;
+  margin: 0 auto;
+}
+
+// refine element ui upload
+.upload-container {
+  .el-upload {
+    width: 100%;
+
+    .el-upload-dragger {
+      width: 100%;
+      height: 200px;
+    }
+  }
+}
+
+// dropdown
+.el-dropdown-menu {
+  a {
+    display: block;
+  }
+}
+
+// fix date-picker ui bug in filter-item
+.el-range-editor.el-input__inner {
+  display: inline-flex !important;
+}
+
+// to fix el-date-picker css style
+.el-range-separator {
+  box-sizing: content-box;
+}
+
+.el-card__body {
+  overflow: auto;
+  height: 90%;
+  width: 100%;
+}
+
+.table-form .el-tooltip .el-form-item .el-form-item__content .el-form-item__error {
+  // 表格验证错误信息超出大小即悬浮框显示
+  // font-size: 50px;
+  position: unset;
+  white-space: normal;
+}
+
+// 表格最后一行底部边框线-有数据时显示-（父元素仅有一个子元素）
+.table-form .el-table__body-wrapper .el-table__body:only-child {
+  border-bottom: 1px solid #dfe6ec;
+}
+
+/* 树级下拉列表 */
+.vue-treeselect {
+  /* 树级下拉列表多选   */
+  .vue-treeselect__control {
+    height: 28px;
+
+    .vue-treeselect__placeholder,
+    .vue-treeselect__single-value {
+      line-height: 28px;
+    }
+  }
+
+  /* 树级下拉列表多选 选中输入框整体不换行，出现滚动条  */
+  .vue-treeselect__multi-value {
+    overflow: auto;
+    white-space: nowrap;
+    line-height: 15px;
+    margin-bottom: 0px;
+    padding-bottom: 1px;
+
+    /* 树级下拉列表多选 选中输入框单条目内不换行 */
+    .vue-treeselect__multi-value-label {
+      white-space: nowrap;
+    }
+  }
+
+  /* 树级下拉列表多选 滚动条宽度设置 */
+  .vue-treeselect__multi-value::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+  /* 树级下拉列表 选项框 */
+  .vue-treeselect__menu {
+    // 追加到body后字体大小和颜色被覆盖
+    color: #606266;
+    font-size: 14px;
+    width: 100%;
+    max-width: 400px;
+    overflow-x: auto;
+
+    /* 树级下拉列表 选项框 单条目 */
+    .vue-treeselect__option {
+      width: auto;
+
+      /* 文本 */
+      .vue-treeselect__label-container {
+        width: auto;
+
+        /* 树级下拉列表多选 取消文本溢出省略 */
+        .vue-treeselect__label {
+          text-overflow: unset;
+        }
+      }
+
+      /* 展开收起按钮 */
+      .vue-treeselect__option-arrow-container,
+      .vue-treeselect__option-arrow-placeholder {
+        width: auto;
+      }
+    }
+  }
+}
